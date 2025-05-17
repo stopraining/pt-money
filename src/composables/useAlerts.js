@@ -36,9 +36,6 @@ export const useAlerts = () => {
     if (width !== "" || width !== null) {
       swalSetting.width = width;
     }
-    // if (!isEmpty(width)) {
-    //   swalSetting.width = width;
-    // }
     swal.fire(swalSetting);
   };
 

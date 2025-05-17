@@ -33,6 +33,10 @@ const getDateShift = () => {
 
 const checkEmpty = () => {
   shiftDataEmpty.value = true;
+  if (isEmpty(store.shiftList) && shiftData.value.length > 0) {
+    shiftDataEmpty.value = false;
+    return;
+  }
   store.shiftList.forEach((shift) => {
     if (
       (shift.dates === props.date && shiftDataEmpty.value) ||
@@ -41,11 +45,6 @@ const checkEmpty = () => {
       shiftDataEmpty.value = false;
     }
   });
-  // shiftListData.value.forEach((shift) => {
-  //   if (shift.dates === props.date && shiftDataEmpty.value) {
-  //     shiftDataEmpty.value = false;
-  //   }
-  // });
 };
 
 // 新增btn click

@@ -18,22 +18,12 @@ const newDateSelected = ref({
   end: `${props.date}T00:00`,
 });
 
-// TODO time default
-// const timeSelected = ref({
-//   timeStart: "",
-//   timeEnd: "",
-// });
-
-// const isOverNight = ref(false);
-
-// TODO default setting
+// default setting
 const breakHour = ref(0);
 const hourlyWage = ref(0);
 
 const emits = defineEmits(["closePicker", "refreshTotal", "editDataAdd"]);
 
-// 未完成：label 分類, key
-// 新增班表
 const addShift = () => {
   const hourCount = getShiftHours(
     newDateSelected.value.start,
@@ -68,18 +58,13 @@ const addShift = () => {
     },
     dates: datesSelect(newDateSelected.value.start),
   };
-  // TODO time default
-  // timeSelected.value.timeStart = newDateSelected.value.start.split("T")[1];
-  // timeSelected.value.timeEnd = newDateSelected.value.end.split("T")[1];
-  // ＊＊＊＊＊＊＊
-  // store.shiftList.push(dateInfo);
+
   if (store.addMode === "N") {
     store.shiftList.push(dateInfo);
     localStorage.setItem("shiftList", JSON.stringify(store.shiftList));
     emits("refreshTotal");
     simpleSwal("新增成功", "success");
   } else {
-    // test
     emits("editDataAdd", dateInfo);
   }
   close();
@@ -88,9 +73,6 @@ const addShift = () => {
 // only date
 const datesSelect = (date) => {
   return date.split("T")[0];
-  // return date.start.split("T")[0] === date.end.split("T")[0]
-  //   ? date.start.split("T")[0]
-  //   : [date.start.split("T")[0], date.end.split("T")[0]];
 };
 
 // 計算時數
@@ -106,12 +88,18 @@ const close = () => {
 
 const getLabelSetting = () => {
   labelSetting.value = store.labelConfig;
+  if (isEmpty(labelSetting.value)) {
+    return;
+  }
   labelSelected.value = labelSetting.value[0];
 };
 
 watch(
   () => labelSelected.value,
   () => {
+    if (isEmpty(labelSetting.value)) {
+      return;
+    }
     breakHour.value = labelSelected.value.defaultBreakHour;
     hourlyWage.value = labelSelected.value.defaultHourlyWage;
   }

@@ -122,8 +122,9 @@ onMounted(() => {
       </div>
       <div class="flex flex-wrap items-center">
         <div class="text-start me-2 my-2">
-          <span>標籤名稱:</span>
+          <label for="labelText">標籤名稱:</label>
           <input
+            id="labelText"
             ref="inputRef"
             class="h-[30px] w-[120px] border-1 border-gray-300"
             type="text"
@@ -155,7 +156,9 @@ onMounted(() => {
           </div>
         </div>
         <div>
-          🫖預設休息時數：<input
+          <label for="defaultBreakHour">🫖預設休息時數：</label>
+          <input
+            id="defaultBreakHour"
             type="number"
             step="0.5"
             v-model="defaultBreakHour"
@@ -163,7 +166,9 @@ onMounted(() => {
           />
         </div>
         <div>
-          💰預設時薪：<input
+          <label for="defaultHourlyWage">💰預設時薪：</label>
+          <input
+            id="defaultHourlyWage"
             type="number"
             v-model="defaultHourlyWage"
             class="w-16 border border-gray-300 h-[30px] border-1 me-3 my-2"

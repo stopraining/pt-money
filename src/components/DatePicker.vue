@@ -50,7 +50,6 @@ const totalCount = () => {
 
 // VCalendar
 const dateClick = (day) => {
-  // isoDate.value = new Date(day.id);
   isoDate.value = day.id; // 時間先預設成00:00開始
   currentMonth.value = new Date(day.id).getMonth() + 1;
 };
@@ -76,9 +75,6 @@ const openAddShiftModalNew = () => {
 const editAddShift = (dateInfo) => {
   shiftDateInfo.value = dateInfo;
 };
-
-// 編輯/刪除班表
-// key (id?)
 
 onMounted(() => {
   // shift list get
@@ -125,15 +121,15 @@ onMounted(() => {
         <template #day-content="{ day, attributes }">
           <div
             @click="dateClick(day)"
-            class="flex md:block justify-center text-sm h-full md:text-xs md:min-h-[100px] p-1 pb-2 cursor-pointer md:hover:bg-gray-100"
+            class="flex sm:block justify-center h-full text-xs sm:min-h-[100px] p-1 pb-2 cursor-pointer sm:hover:bg-gray-100"
             :class="{
-              'md:!bg-theme-bgc ': isDateActive(day),
+              'sm:!bg-theme-bgc ': isDateActive(day),
             }"
           >
             <div
-              class="md:!border-none h-[30px] w-[30px] flex justify-center items-center"
+              class="sm:!border-none h-[25px] w-[25px] flex justify-center items-center"
               :class="{
-                'border-2 border-theme-yellow rounded-full bg-theme-bgc md:!bg-none font-bold':
+                'border-2 border-theme-yellow rounded-full bg-theme-bgc sm:!bg-none font-bold':
                   isDateActive(day),
               }"
             >
@@ -142,7 +138,7 @@ onMounted(() => {
 
             <div
               v-if="attributes"
-              class="text-white font-medium hidden md:block mt-1 space-y-1"
+              class="text-white font-medium hidden sm:block mt-1 space-y-1"
             >
               <div
                 v-for="attr in attributes"
@@ -184,7 +180,7 @@ onMounted(() => {
       </VDatePicker>
     </div> -->
     <div
-      class="flex justify-center w-full md:fixed md:bottom-0 md:inset-x-0 z-1 mb-5"
+      class="flex justify-center w-full sm:fixed sm:bottom-0 sm:inset-x-0 z-1 mb-5"
     >
       <button
         @click="openEditShiftModal = true"

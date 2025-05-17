@@ -63,14 +63,6 @@ onBeforeUnmount(() => {
       <button @click="deleteItem(id)" class="text-red-700 m-1 p-1">
         <i class="fa-solid fa-trash"></i>
       </button>
-      <!-- original -->
-      <!-- <button @click="getShiftInfo">
-        <i class="fa-solid fa-circle-info text-theme m-1"></i>
-      </button>
-      <button @click="deleteItem(id)" class="text-red-700 m-1 p-1">
-        <i class="fa-solid fa-trash"></i>
-      </button> -->
-      <!--  -->
     </div>
   </div>
 </template>
