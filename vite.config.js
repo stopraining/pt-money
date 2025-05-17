@@ -5,6 +5,7 @@ import { fileURLToPath, URL } from "url";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/pt-money/",
   plugins: [vue(), tailwindcss()],
   resolve: {
     alias: [
