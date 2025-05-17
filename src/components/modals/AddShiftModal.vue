@@ -135,14 +135,11 @@ onMounted(() => {
           is24hr
         ></VDatePicker>
       </div>
-      <!-- <div class="flex flex-wrap">
-      <input type="checkbox" id="checkbox-overnight" v-model="isOverNight" />
-      <label for="checkbox-overnight">跨日班</label>
-    </div> -->
       <div class="flex flex-wrap">
         <div class="text-start my-2 me-3">
-          <label>🫖休息時數:</label>
+          <label for="breakHour">🫖休息時數:</label>
           <input
+            id="breakHour"
             type="number"
             step="0.5"
             v-model="breakHour"
@@ -151,8 +148,9 @@ onMounted(() => {
           <span>hr.</span>
         </div>
         <div class="text-start my-2">
-          <label>💰時薪:$</label>
+          <label for="hourlyWage">💰時薪:$</label>
           <input
+            id="hourlyWage"
             type="number"
             v-model="hourlyWage"
             class="w-16 border border-gray-300 mx-1"
@@ -161,7 +159,7 @@ onMounted(() => {
       </div>
       <div class="flex flex-wrap items-center">
         <div class="text-start my-2">
-          <span>🏷️標籤:</span>
+          <label for="label">🏷️標籤:</label>
           <select
             name="label"
             id="label"
